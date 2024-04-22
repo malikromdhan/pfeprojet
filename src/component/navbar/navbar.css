@@ -1,0 +1,79 @@
+
+.navbar-container {
+ /* Couleur de fond du cadre */
+  padding: 5px; /* Espacement intérieur du cadre */
+  
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #c3bfbf; /* Couleur de fond de la barre de navigation */
+  z-index: 1000; /* Assurez-vous que la barre de navigation est au-dessus du contenu de la page */
+}
+
+
+
+
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container img {
+    margin-right: 10px; /* Espace entre le logo et le contenu */
+  
+}
+.left img {
+    width: 80px;
+    height: auto;
+    margin-right: 5px;
+    border-right: 1px solid #ec610b; /* Bordure verticale à droite de logo1 */
+    padding-right: 10px; /* Espacement entre le logo1 et la bordure */
+}
+.separator {
+    border: none;
+    border-top: 1px solid #bc690b; /* Vous pouvez changer la couleur de la ligne en modifiant la valeur de la propriété border-top */
+    margin: 1px 0; /* Marge supérieure et inférieure pour l'espace entre les éléments */
+  }
+  
+.left {
+    display: flex;
+    align-items: center;
+}
+.text-container {
+    padding-left: 10px; /* Espacement entre la bordure et les paragraphes */
+  }
+  
+  header {
+    padding-top: 3px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: max-content;
+    /* height: 2rem; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .right button {
+    margin-left: 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .right button:hover {
+    background-color: #777;
+  }
+  
+  .text-container {
+    margin-left: 10px;
+  }
+  
+  .text-container p {
+    margin: 0;
+  }
+

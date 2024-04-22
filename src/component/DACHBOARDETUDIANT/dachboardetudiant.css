@@ -1,0 +1,83 @@
+/* Styles spécifiques pour la page de tableau de bord */
+.dachboardetudiant-container {
+  background-color: #f0f0f0; /* Gris clair */
+  padding: 20px;
+  margin-top: 10%;
+  border-radius: 10px;
+  margin-left: 5px;
+
+}
+
+.head {
+  background-color: #ff7f0e; /* Orange */
+  padding: 10px 20px;
+  color: white;
+}
+
+.log {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.log.in {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.lein {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.lein a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Styles pour les tableaux des étudiants et des professeurs */
+.table-container {
+  margin-top: 20px;
+}
+
+.student-table,
+.professor-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.student-table th,
+.student-table td,
+.professor-table th,
+.professor-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.student-table th,
+.professor-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.student-table tbody tr:nth-child(even),
+.professor-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.student-table tbody tr:hover,
+.professor-table tbody tr:hover {
+  background-color: #f18221;
+}

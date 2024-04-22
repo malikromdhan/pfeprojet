@@ -1,0 +1,89 @@
+.body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../images/issatmh1.jpg'); /* Remplacez 'chemin/vers/votre/image.jpg' par le chemin de votre image */
+    background-size: cover; /* Assurez-vous que l'image couvre tout l'arrière-plan */
+    background-position: center; /* Centrez l'image */
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .login-page {
+    position: relative;
+    min-height: 100vh; /* Hauteur minimale de la page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-flex-group: rgb(237, 88, 13);
+    
+  }
+  
+  .login-container {
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Ajoutez une couleur de fond semi-transparente pour le formulaire */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-title {
+    color: #f5821f;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .mode-select {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .user-mode-button,
+  .admin-mode-button,
+  .login-button {
+    width: 45%;
+    padding: 10px;
+    background-color: #f5821f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .user-mode-button:hover,
+  .admin-mode-button:hover,
+  .login-button:hover {
+    background-color: #d65b0a;
+  }
+  
+  .login-form h3 {
+    color: #333;
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .login-button {
+    margin-top: 15px;
+  }
+  
