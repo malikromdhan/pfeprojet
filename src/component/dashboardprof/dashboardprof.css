@@ -1,0 +1,50 @@
+.dashboardprof-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ajuste la hauteur à 100% de la vue */
+  }
+  
+  .headr {
+    background-color: #ec6e08; /* Couleur de fond de la barre de navigation */
+    color: white;
+    padding: 3px;
+  }
+  
+ 
+  .content {
+    flex: 1; /* Fait en sorte que le contenu occupe tout l'espace disponible */
+    padding: 1px;
+  }
+  
+  .recherche1 {
+    display: flex;
+    justify-content: flex-end; /* Aligne les éléments à droite */
+    padding: 15px;
+  }
+  
+  .student-table {
+    width: 100%;
+    border-collapse: collapse; /* Fusionne les bordures des cellules */
+    margin-top: 15px;
+  }
+  
+  .student-table th,
+  .student-table td {
+    border: 1px solid #ddd; /* Bordures des cellules */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .student-table th {
+    background-color: #f2f2f2; /* Couleur de fond pour les cellules d'en-tête */
+    color: #333;
+  }
+  
+  .student-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Couleur de fond pour les lignes paires */
+  }
+  
+  .student-table tr:hover {
+    background-color: #cf0f0f; /* Couleur de fond au survol */
+  }
+  

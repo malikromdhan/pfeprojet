@@ -1,4 +1,4 @@
-import Dachboardetudiant from '../DACHBOARDETUDIANT/dachboardetudiant';
+import Dachboardetudiant from '../dashboardadmin/dashboardadmin';
 import './login.css'
 import React, { useState } from 'react';
 
@@ -37,13 +37,15 @@ const LoginPage = () => {
   };
 
   const handleLogin = () => {
-    if (userMode) {
+   // if (userMode) {
       // Logique de connexion pour l'utilisateur
-      console.log('Login en tant qu\'utilisateur avec CN:', userCn, 'et mot de passe:', userPassword);
-    } else if (adminMode) {
+     // console.log('Login en tant qu\'utilisateur avec CN:', userCn, 'et mot de passe:', userPassword);
+    //} else if (adminMode) {
       // Logique de connexion pour l'administrateur
-      console.log('Login en tant qu\'administrateur avec CN:', adminCn, 'et mot de passe:', adminPassword);
-    }
+      //console.log('Login en tant qu\'administrateur avec CN:', adminCn, 'et mot de passe:', adminPassword);
+    //}
+    
+  
   };
 
   return (

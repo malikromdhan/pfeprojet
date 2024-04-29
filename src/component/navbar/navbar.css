@@ -1,7 +1,7 @@
 
 .navbar-container {
  /* Couleur de fond du cadre */
-  padding: 5px; /* Espacement intérieur du cadre */
+  padding: 1px; /* Espacement intérieur du cadre */
   
 }
 .navbar {
@@ -12,38 +12,49 @@
   z-index: 1000; /* Assurez-vous que la barre de navigation est au-dessus du contenu de la page */
 }
 
-
-
-
-
 .container {
     display: flex;
     align-items: center;
+
+  
+
 }
 
 .container img {
-    margin-right: 10px; /* Espace entre le logo et le contenu */
-  
+    margin-left: -6%; /* Espace entre le logo et le contenu */
+    width: 40px; /* Taille du logo */
+    height: auto;
 }
+.regl {
+  margin-left: -100%;
+    margin-right: 48%;
+    margin-top: 1rem;
+
+
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid #bc690b; /* Vous pouvez changer la couleur de la ligne en modifiant la valeur de la propriété border-top */
+  margin: 2px 0; /* Marge supérieure et inférieure pour l'espace entre les éléments */
+}
+
 .left img {
     width: 80px;
     height: auto;
     margin-right: 5px;
     border-right: 1px solid #ec610b; /* Bordure verticale à droite de logo1 */
     padding-right: 10px; /* Espacement entre le logo1 et la bordure */
+    margin-left: -4%;
 }
-.separator {
-    border: none;
-    border-top: 1px solid #bc690b; /* Vous pouvez changer la couleur de la ligne en modifiant la valeur de la propriété border-top */
-    margin: 1px 0; /* Marge supérieure et inférieure pour l'espace entre les éléments */
-  }
+
   
 .left {
     display: flex;
     align-items: center;
 }
 .text-container {
-    padding-left: 10px; /* Espacement entre la bordure et les paragraphes */
+    padding-left: 1px; /* Espacement entre la bordure et les paragraphes */
   }
   
   header {
@@ -56,19 +67,6 @@
     justify-content: space-between;
     align-items: center;
   }
-  .right button {
-    margin-left: 10px;
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .right button:hover {
-    background-color: #777;
-  }
-  
   .text-container {
     margin-left: 10px;
   }

@@ -11,7 +11,7 @@ const Navbar = () => {
       <nav className="navbar">
         <div className='container'>
           <img src={logo} alt='logo' />
-          <p>Tunisian Republic Ministry of Higher Education and Scientific Research</p>
+          <p className='regl'>Tunisian Republic Ministry of Higher Education and Scientific Research</p>
         </div>
         <hr className="separator" />
         <header>

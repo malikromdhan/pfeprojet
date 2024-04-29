@@ -2,7 +2,7 @@
 .dachboardetudiant-container {
   background-color: #f0f0f0; /* Gris clair */
   padding: 20px;
-  margin-top: 10%;
+  margin-top: 1%;
   border-radius: 10px;
   margin-left: 5px;
 
@@ -80,4 +80,53 @@ nav a:hover {
 .student-table tbody tr:hover,
 .professor-table tbody tr:hover {
   background-color: #f18221;
+}
+
+.recherche{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.formul{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.custom-modal .formul {
+  background-color: #fff; /* Fond blanc */
+  padding: 20px;
+  border: 1px solid #ccc; /* Bordure grise */
+  border-radius: 8px;
+}
+
+.custom-modal .modal-body {
+  padding: 20px;
+}
+
+.custom-modal .form-group {
+  margin-bottom: 20px;
+}
+
+.custom-modal .form-label {
+  font-weight: bold;
+}
+
+.custom-modal .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Pour inclure la bordure et le padding dans la largeur */
+}
+
+.custom-modal .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff7f0e; /* Orange */
+  color: white;
+  cursor: pointer;
+}
+
+.custom-modal .btn:hover {
+  background-color: #e44507; /* Orange foncé au survol */
 }
