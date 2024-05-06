@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import './App.css';
 import Navbar from './component/navbar/Navbar';
 import LoginPage from './component/login/login';
@@ -9,17 +9,15 @@ import Dashboardprof from './component/dashboardprof/dashboardprof'; // Importer
 
 import DashboardEtudiant from './component/dashboardetudiant/dashboardetudiant';
 
-import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,} from 'react-router-dom';
 
 
 
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  
 
-  const navig = () => {
-    setIsLoggedIn(true); // Set isLoggedIn to true when navigating to dashboard
-  }
+ 
 
   return (
     <>
@@ -29,31 +27,19 @@ function App() {
         {/* Use Routes to define your application routes */}
         <Routes>
            {/* Define route for the dashboard d'etudiant */}
-           <Route path="/DashboardEtudiant" element={<DashboardEtudiant />} />
+           <Route path="/Dashboard/student" element={<DashboardEtudiant />} />
 
           {/* Define route for the dashboard */}
-          <Route path="/Dashboardadmin" element={<Dashboardadmin />} />
+          <Route path="/Dashboard/admin" element={<Dashboardadmin />} />
 
           {/* Define route for the dashboard du professeur */}
-          <Route path="/Dashboardprof" element={<Dashboardprof />} />
+          <Route path="/Dashboard/professor" element={<Dashboardprof />} />
 
           {/* Define route for the login page */}
-          <Route path="/" element={isLoggedIn ? <Navigate to="/Dashboardadmin" /> : <LoginPage />} />
+          <Route path="/" element={ <LoginPage />} />
         </Routes>
-        {/* Conditionally render the buttons based on login status */}
-        {!isLoggedIn && (
-          <>
-            <button onClick={navig}>
-              Dashboardadmin
-            </button>
-            <button>
-              <Link to="/Dashboardprof">Dashboardprof</Link> {/* Utiliser Link pour naviguer vers Dachboardprof */}
-            </button>
-            <button>
-              <Link to="/DashboardEtudiant">Dachboardetudiant</Link> {/* Utiliser Link pour naviguer vers Dachboardetudiant*/}
-            </button>
-          </>
-        )}
+       
+       
       </div>
     </BrowserRouter>
     </>

@@ -130,3 +130,27 @@ nav a:hover {
 .custom-modal .btn:hover {
   background-color: #e44507; /* Orange foncé au survol */
 }
+
+.confirmation-modal .formul {
+  background-color: #fff; /* Fond blanc */
+  padding: 20px;
+  border: 1px solid #ccc; /* Bordure grise */
+  border-radius: 8px;
+}
+
+.confirmation-modal .modal-body {
+  padding: 20px;
+}
+
+.confirmation-modal .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff7f0e; /* Orange */
+  color: white;
+  cursor: pointer;
+}
+
+.confirmation-modal .btn:hover {
+  background-color: #e44507; /* Orange foncé au survol */
+}

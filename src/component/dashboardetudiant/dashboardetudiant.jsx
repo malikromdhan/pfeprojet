@@ -1,5 +1,7 @@
 import './dashboardetudiant.css';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Importez Axios ou une autre bibliothèque HTTP
 
 
 
@@ -8,109 +10,152 @@ import { useState } from 'react';
 
 const DashboardEtudiant = () => {
 
-  const studentsData = [
-    { id: 1, name: "malek romdhane", session1: { room: "salle 3", status: "Présent" }, session2: { room: "salle 5", status: "Absent" }, session3: { room: "salle 5", status: "Présent" }, session4: { room: "salle 10", status: "Absent" }, date: "2024-04-21", class: "A" },
-    { id: 2, name: "yosri chafcher", session1: { room: "salle 4", status: "Absent" }, session2: { room: "salle 3", status: "Présent" }, session3: { room: "salle 7", status: "Absent" }, session4: { room: "salle 9", status: "Présent" }, date: "2024-04-21", class: "B" },
-    { id: 3, name: "mohammed x", session1: { room: "salle 1", status: "Présent" }, session2: { room: "salle 2", status: "Absent" }, session3: { room: "salle 6", status: "Présent" }, session4: { room: "salle 5", status: "Absent" }, date: "2024-04-21", class: "C" },
-    { id: 4, name: "ali", session1: { room: "salle 1", status: "Absent" }, session2: { room: "salle 2", status: "Présent" }, session3: { room: "salle 6", status: "Absent" }, session4: { room: "salle 5", status: "Présent" }, date: "2024-04-21", class: "C" },
-    // Ajouter d'autres étudiants si nécessaire
-];
+    const [studentsData, setStudentsData] = useState([]);
+
+
+
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedClasse, setSelectedClasse] = useState('All');
+    const [selectedDate, setSelectedDate] = useState('');
+
+    const uniqueClasses = [...new Set(studentsData.map(student => student.classe))];
+
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const handleClassFilter = (event) => {
+        setSelectedClasse(event.target.value);
+    };
+
+    const handleDateFilter = (event) => {
+        setSelectedDate(event.target.value);
+    };
+
+    const filteredStudents = studentsData.filter((student) => {
+        // Convertir la date sélectionnée par l'utilisateur en objet Date JavaScript
+        const selectedDateObj = selectedDate ? new Date(selectedDate) : null;
+
+        // Vérifier si la date sélectionnée correspond à la date de l'étudiant
+        return (
+            student.role === 'student' &&
+            student.username.toLowerCase().includes(searchTerm.toLowerCase()) &&
+            (selectedClasse === 'All' || student.classe === selectedClasse) &&
+            (!selectedDate || student.date === selectedDateObj.toISOString())
+        );
+    });
+
+
+
+    useEffect(() => {
+        // Fonction pour charger les données des étudiants depuis une API
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/api/users');
+                setStudentsData(response.data);
+            } catch (error) {
+                console.error('Erreur lors du chargement des données:', error);
+            }
+        };
+
+        // Appel de la fonction de chargement des données lors du montage du composant
+        fetchData();
+    }, []); // Le tableau vide [] comme deuxième argument assure que l'effet s'exécute une seule fois lors du montage
 
 
 
 
-const [searchTerm, setSearchTerm] = useState('');
-const [selectedClass, setSelectedClass] = useState('All');
-const [selectedDate, setSelectedDate] = useState('');
 
-const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-};
 
-const handleClassFilter = (event) => {
-    setSelectedClass(event.target.value);
-};
 
-const handleDateFilter = (event) => {
-    setSelectedDate(event.target.value);
-};
 
-const filteredStudents = studentsData.filter((student) => {
+
+    // fonction pour la deconnection 
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/');
+    };
+
+
+
     return (
-        student.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-        (selectedClass === 'All' || student.class === selectedClass) &&
-        (selectedDate === '' || student.date === selectedDate)
-    );
-});
+        <>
+            <div className="dashboardetudiant-container">
+                <header className='headr'>
+                    <nav>
+                        <h2>
+                            student Dashboard
+                        </h2>
+                        <div className='recherche1'>
+                            <input
+                                type='text'
+                                placeholder="rechercher par nom..."
+                                value={searchTerm}
+                                onChange={handleSearch}
+                            />
+                            <select value={selectedClasse} onChange={handleClassFilter}>
+                                <option value="All">Toutes les classes</option>
+                                {/* Générer les options pour chaque classe unique */}
+                                {uniqueClasses.map((classValue, index) => (
+                                    <option key={index} value={classValue}>{classValue}</option>
+                                ))}
 
 
+                            </select>
+                            <input
+                                type="date"
+                                value={selectedDate}
+                                onChange={handleDateFilter}
 
-  return (
-    <div className="dashboardetudiant-container">
-       <header className='headr'>
-                <nav>
-                    <h2>
-                        student Dashboard 
-                    </h2>
-                    <div className='recherche1'>
-                        <input
-                            type='text'
-                            placeholder="rechercher par nom..."
-                            value={searchTerm}
-                            onChange={handleSearch}
-                        />
-                        <select value={selectedClass} onChange={handleClassFilter} >
-                            <option value={"All"}> Toutes les classes </option>
-                            <option value={"A"}> classe A</option>
-                            <option value={"B"}> classe B</option>
-                            <option value={"C"}> classe C</option>
-                            <option value={"D"}> classe D</option>
-
-
-                            {/* Ajouter d'autres options de classe si nécessaire */}
-
-                        </select>
-                        <input
-                            type="date"
-                            value={selectedDate}
-                            onChange={handleDateFilter}
-
-                        />
-                    </div>
-                </nav>
-            </header>
-            <table className="student-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Séance 1</th>
-                        <th>Séance 2</th>
-                        <th>Séance 3</th>
-                        <th>Séance 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredStudents.map(student => (
-                        <tr key={student.id}>
-                            <td>{student.id}</td>
-                            <td>{student.name}</td>
-                            <td>{student.session1.room} - {student.session1.status}</td>
-                            <td>{student.session2.room} - {student.session2.status}</td>
-                            <td>{student.session3.room} - {student.session3.status}</td>
-                            <td>{student.session4.room} - {student.session4.status}</td>
-                      
+                            />
+                        </div>
+                    </nav>
+                </header>
+                <table className="student-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Séance 1</th>
+                            <th>Séance 2</th>
+                            <th>Séance 3</th>
+                            <th>Séance 4</th>
+                           
                         </tr>
-                    ))}
+                    </thead>
+                    <tbody>
+                        {filteredStudents.map(student => (
+                            <tr key={student.Id}>
+                                <td>{student.Id}</td>
+                                <td>{student.username}</td>
+                                <td>{student.status.session1 ? `${student.status.session1.room1} - ${student.status.session1.etats1}` : ''}</td>
+                                <td>{student.status.session2 ? `${student.status.session2.room2} - ${student.status.session2.etats2}` : ''}</td>
+                                <td>{student.status.session3 ? `${student.status.session3.room3} - ${student.status.session3.etats3}` : ''}</td>
+                                <td>{student.status.session4 ? `${student.status.session4.room4} - ${student.status.session4.etats4}` : ''}</td>
+                            </tr>
+                        ))}
 
-                </tbody>
-            </table>
-
- 
+                    </tbody>
+                </table>
 
 
-    </div>
-  )
+
+
+            </div>
+            <div className="footer">
+                {/* Bouton de déconnexion */}
+                <button onClick={handleLogout}>Déconnexion</button>
+            </div>
+
+
+
+        </>
+
+
+    )
 }
 
 export default DashboardEtudiant;
